@@ -9,6 +9,14 @@
     <ul class="days" :class="shiftDay">
       <li v-for="(i,index) in allDays" :key="index">{{i}}</li>
     </ul>
+    <table>
+      <thead></thead>
+      <tbody>
+        <tr v-for="(week,index) in separeteWeek" :key="index">
+          <td v-for="(day,index) in week" :key="index">{{day}}</td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 </template>
 
@@ -24,7 +32,7 @@ export default {
   computed: {
     getFullYear() {
       //   return this.date.getFullYear();
-      return 2022;
+      return 2020;
     },
     getMonth() {
       //monthは0から始まるため+1する
@@ -65,18 +73,24 @@ export default {
       const shiftDay = `shit_${firstDateDay + 1}`;
       return shiftDay;
     },
-    // separeteWeek() {
-    //   const allDays = this.allDays;
-    //   const sevendays = 7;
-    //   let separeteWeek = [];７日ごとに配列へ入れる
-    //   const i = 0;
-    //   while (i < allDays.length) {
-    //     // eslint-disable-next-line no-console
-    //     console.log(separeteWeek);
-    //     separeteWeek.push(allDays.splice(i, i + sevendays));
-    //   }
-    //   return separeteWeek;
-    // },
+    separeteWeek() {
+      const allDays = this.allDays;
+      const sevendays = 7;
+      let separeteWeek = [];
+      // const blanks = "";
+
+      for (let i = 0; i < this.firstDateDay; i++) {
+        // eslint-disable-next-line no-console
+        console.log(beforefirstDay);
+        let beforefirstDay = new Date(this.getFullYear, this.getMonth - 1, -i);
+        allDays.unshift(beforefirstDay);
+      }
+      const i = 0;
+      while (i < allDays.length) {
+        separeteWeek.push(allDays.splice(i, i + sevendays));
+      }
+      return separeteWeek;
+    },
     format() {
       const formatDate = new Intl.DateTimeFormat("ja-JP", {
         year: "numeric",
