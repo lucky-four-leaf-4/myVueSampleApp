@@ -8,14 +8,15 @@
   - add extension Vetur
   - add extension Prettier
 - git
+
   - https
   - config credential.helper=store
     Vue CLI practice
 
-Vvs code recommend
-vs code setting sync  
-install extention:[setting sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync)  
-setting files upload || download from gist
+- vs code recommend
+  - vs code setting sync  
+    install extention:[setting sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync)  
+    setting files upload || download from gist
 
 if you need vs code workspace setting.json  
 I have pushed this repo
