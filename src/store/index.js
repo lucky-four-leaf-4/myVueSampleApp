@@ -1,10 +1,13 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import axios from "axios";
+import mod1 from "./mod1";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+  namespaced: true,
+  modules: { mod1 },
   state: {
     count: 0,
     backgroundcolor: "navy",
