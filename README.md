@@ -1,5 +1,15 @@
 # sample-app
 
+## 環境
+- Windows : chocolatey nodist
+- Ubuntu : homebrew nodebrew
+- vs code
+  - add extension Vetur
+  - add extension Prettier
+- git  
+  - https  
+  - config credential.helper=store
+
 ## Project setup
 ```
 npm install
