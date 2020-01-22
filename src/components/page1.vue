@@ -11,6 +11,7 @@
       <page1child @parentMethod="updateMessage" :currentChildBody="currentChild" />
     </section>
     <imagegallery />
+    <calendar />
   </section>
 </template>
 
@@ -19,6 +20,7 @@ import btnEnlarge from "@/components/btnEnlarge.vue";
 import btnCondense from "@/components/btnCondense.vue";
 import page1child from "@/components/page1child.vue";
 import imagegallery from "@/components/imageGallery.vue";
+import calendar from "@/components/calendar";
 
 export default {
   name: "page1",
@@ -27,7 +29,8 @@ export default {
     btnEnlarge,
     btnCondense,
     page1child,
-    imagegallery
+    imagegallery,
+    calendar
   },
   data: function() {
     return {
