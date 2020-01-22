@@ -68,7 +68,7 @@ export default {
     // separeteWeek() {
     //   const allDays = this.allDays;
     //   const sevendays = 7;
-    //   let separeteWeek = [];
+    //   let separeteWeek = [];７日ごとに配列へ入れる
     //   const i = 0;
     //   while (i < allDays.length) {
     //     // eslint-disable-next-line no-console
