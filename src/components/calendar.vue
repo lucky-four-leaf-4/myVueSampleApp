@@ -6,9 +6,17 @@
         <li v-for="(day, index) in dayOfWeek" :key="index">{{day}}</li>
       </ul>
     </section>
-    <ul class="days" :class="shiftDay">
+    <!-- <ul class="days" :class="shiftDay">
       <li v-for="(i,index) in allDays" :key="index">{{i}}</li>
-    </ul>
+    </ul>-->
+    <table>
+      <thead></thead>
+      <tbody>
+        <tr v-for="(week,index) in separeteWeek" :key="index">
+          <td v-for="(day,index) in week" :key="index">{{day}}</td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 </template>
 
@@ -24,7 +32,7 @@ export default {
   computed: {
     getFullYear() {
       //   return this.date.getFullYear();
-      return 2022;
+      return 2020;
     },
     getMonth() {
       //monthは0から始まるため+1する
@@ -46,6 +54,10 @@ export default {
       const lastDay = new Date(this.getFullYear, this.getMonth, 0);
       return lastDay.getDate();
     },
+    lastDateDay() {
+      const lastDay = new Date(this.getFullYear, this.getMonth, 0);
+      return lastDay.getDay();
+    },
     allMonths() {
       let allMonths = [];
       for (let i = 0; i < 12; i++) {
@@ -56,7 +68,12 @@ export default {
     allDays() {
       let allDays = [];
       for (let i = 0; i < this.lastDay; i++) {
-        allDays[i] = new Date(this.getFullYear, this.getMonth - 1, [i + 1]);
+        allDays[i] = new Intl.DateTimeFormat("ja-JP", {
+          year: "numeric",
+          month: "narrow",
+          day: "numeric",
+          weekday: "long"
+        }).format(new Date(this.getFullYear, this.getMonth - 1, [i + 1]));
       }
       return allDays;
     },
@@ -65,18 +82,24 @@ export default {
       const shiftDay = `shit_${firstDateDay + 1}`;
       return shiftDay;
     },
-    // separeteWeek() {
-    //   const allDays = this.allDays;
-    //   const sevendays = 7;
-    //   let separeteWeek = [];
-    //   const i = 0;
-    //   while (i < allDays.length) {
-    //     // eslint-disable-next-line no-console
-    //     console.log(separeteWeek);
-    //     separeteWeek.push(allDays.splice(i, i + sevendays));
-    //   }
-    //   return separeteWeek;
-    // },
+    separeteWeek() {
+      const allDays = this.allDays;
+      const sevendays = 7;
+      let separeteWeek = [];
+      for (let i = 0; i < this.firstDateDay; i++) {
+        let beforefirstDay = new Date(this.getFullYear, this.getMonth - 1, -i);
+        allDays.unshift(beforefirstDay);
+      }
+      for (let i = 0; i < 6 - this.lastDateDay; i++) {
+        let afterLastDay = new Date(this.getFullYear, this.getMonth, i + 1);
+        allDays.push(afterLastDay);
+      }
+      const i = 0;
+      while (i < allDays.length) {
+        separeteWeek.push(allDays.splice(i, i + sevendays));
+      }
+      return separeteWeek;
+    },
     format() {
       const formatDate = new Intl.DateTimeFormat("ja-JP", {
         year: "numeric",

@@ -1,14 +1,25 @@
 # sample-app
 
-Vue CLI practice
+## 環境
 
-Vvs code recommend
-vs code setting sync  
-install extention:[setting sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync)  
-setting files upload || download from gist  
+- Windows : chocolatey nodist
+- Ubuntu : homebrew nodebrew
+- vs code
+  - add extension Vetur
+  - add extension Prettier
+- git
+
+  - https
+  - config credential.helper=store
+    Vue CLI practice
+
+- vs code recommend
+  - vs code setting sync  
+    install extention:[setting sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync)  
+    setting files upload || download from gist
 
 if you need vs code workspace setting.json  
-I have pushed this repo  
+I have pushed this repo
 
 when you clone this repo  
 use https && [personal access token](https://github.com/settings/tokens)
