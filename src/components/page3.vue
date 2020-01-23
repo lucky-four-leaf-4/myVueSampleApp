@@ -28,6 +28,7 @@ export default {
     if (this.$store.state.info === null) {
       this.$store.dispatch("actionGetApi");
     }
+    this.$store.dispatch("mod1/actionGetData");
   },
   computed: {
     computedcurrencyinfo() {
